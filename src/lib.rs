@@ -153,11 +153,11 @@ pub fn translation(inter_codons: Vec<String>) -> Vec<String> {
 }
 
 #[wasm_bindgen]
-pub fn main() {
+pub fn main(mut strand: String) {
     println!("Enter the DNA strand to be transcribed and translated: ");
 
-    let mut strand: String = "TACATGCCATACGAGACGAGCGCGCCTAAGCGGCGCAGACTCATGGTCATT".to_string();
-    strand = strand.to_uppercase();
+    //let mut strand: String = "TACATGCCATACGAGACGAGCGCGCCTAAGCGGCGCAGACTCATGGTCATT".to_string();
+    strand = strand.to_string().to_uppercase();
 
     let messenger_rna = transcription(strand);
     println!("The transcribed strand is: {}", messenger_rna);

@@ -5,4 +5,4 @@ const strand = urlParams.get('strand');
 
 console.log(strand)
 
-wasm.main();
+wasm.main(strand);
