@@ -16,7 +16,6 @@ extern {
     fn alert(s: &str);
 }
 
-//#[wasm_bindgen]
 pub fn transcription(dna: String) -> String {
     let char_vec: Vec<char> = dna.chars().collect();
     let mut transcribed_vec: Vec<char> = Vec::new();
@@ -28,7 +27,6 @@ pub fn transcription(dna: String) -> String {
             'C' => transcribed_vec.push('G'),
             'G' => transcribed_vec.push('C'),
             _ => {
-                // println!("Incorrect char");
                 break;
              }
         }
@@ -38,7 +36,6 @@ pub fn transcription(dna: String) -> String {
     return transcribed_string;
 }
 
-//#[wasm_bindgen]
 pub fn find_start(messenger_rna: String) -> String {
     let start_codon = "AUG";
     let start_index = messenger_rna.find(start_codon).unwrap();
@@ -46,7 +43,6 @@ pub fn find_start(messenger_rna: String) -> String {
     return inter_rna;
 }
 
-//#[wasm_bindgen]
 pub fn break_into_codons(inter_rna: String) -> Vec<String> {
     let sub_len = 3;
     let subs = inter_rna.as_bytes()
@@ -63,7 +59,6 @@ pub fn break_into_codons(inter_rna: String) -> Vec<String> {
     return string_vec;
 }
 
-//#[wasm_bindgen]
 pub fn find_stop(inter_codons: &[String]) -> usize {
     let mut stop_index_1: usize = usize::MAX;
     let mut stop_index_2: usize = usize::MAX;
@@ -84,7 +79,6 @@ pub fn find_stop(inter_codons: &[String]) -> usize {
     return stop_index;
 }
 
-//#[wasm_bindgen]
 pub fn find_first(stop_index_1: usize, stop_index_2: usize, stop_index_3: usize) -> usize {
     let mut stop_index: usize = 1;
 
@@ -114,7 +108,6 @@ pub fn find_first(stop_index_1: usize, stop_index_2: usize, stop_index_3: usize)
     return stop_index;
 }
 
-//#[wasm_bindgen]
 pub fn translation(inter_codons: Vec<String>) -> Vec<String> {
     let mut amino_acids_list: Vec<String> = Vec::new();
 
@@ -143,7 +136,6 @@ pub fn translation(inter_codons: Vec<String>) -> Vec<String> {
              "AAU" | "AAC" => amino_acids_list.push("Asparginine".to_string()),
              "AAA" | "AAG" => amino_acids_list.push("Lysine".to_string()),
              _ => {
-                // println!("Incorrect char");
                 break;
              }
         }
@@ -156,7 +148,6 @@ pub fn translation(inter_codons: Vec<String>) -> Vec<String> {
 pub fn main(mut strand: String) {
     println!("Enter the DNA strand to be transcribed and translated: ");
 
-    //let mut strand: String = "TACATGCCATACGAGACGAGCGCGCCTAAGCGGCGCAGACTCATGGTCATT".to_string();
     strand = strand.to_string().to_uppercase();
 
     let messenger_rna = transcription(strand);

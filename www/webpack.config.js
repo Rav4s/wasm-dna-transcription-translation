@@ -2,6 +2,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
 module.exports = {
+  devtool: 'eval-source-map',
   entry: "./bootstrap.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -10,5 +11,6 @@ module.exports = {
   mode: "development",
   plugins: [
     new CopyWebpackPlugin(['index.html'])
+    new CopyWebpackPlugin(['app.html'])
   ],
 };
