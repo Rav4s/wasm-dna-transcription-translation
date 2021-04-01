@@ -159,16 +159,16 @@ pub fn main(mut strand: String) {
     // window object.
     let window = web_sys::window().expect("no global `window` exists");
     let document = window.document().expect("should have a document on window");
-    let body = document.body().expect("document should have a body");
+    let codons_div = document.get_element_by_id("codons").expect("codons div should exist");
 
     let val = document.create_element("h2").unwrap();
     val.set_text_content(Some("Codons:"));
-    body.append_child(&val).unwrap();
+    codons_div.append_with_node_1(&val).unwrap();
 
     print!("The translated amino acids are: ");
     for i in amino_acids_list {
         let val = document.create_element("p").unwrap();
         val.set_text_content(Some(&i));
-        body.append_child(&val).unwrap();
+        codons_div.append_with_node_1(&val).unwrap();
     }
 }
