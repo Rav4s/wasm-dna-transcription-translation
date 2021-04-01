@@ -10,12 +10,6 @@ use std::process;
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
-#[wasm_bindgen]
-extern "C" {
-    #[wasm_bindgen(js_namespace = console)]
-    fn log(s: &str);
-}
-
 pub fn transcription(dna: String) -> String {
     let char_vec: Vec<char> = dna.chars().collect();
     let mut transcribed_vec: Vec<char> = Vec::new();
