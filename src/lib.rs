@@ -1,7 +1,6 @@
 mod utils;
 
 use wasm_bindgen::prelude::*;
-use std::io;
 use std::str;
 use std::process;
 
@@ -12,8 +11,9 @@ use std::process;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-extern {
-    fn alert(s: &str);
+extern "C" {
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
 }
 
 pub fn transcription(dna: String) -> String {
@@ -160,9 +160,21 @@ pub fn main(mut strand: String) {
     println!("{}", stop_index);
     inter_codons.truncate(stop_index);
     let amino_acids_list = translation(inter_codons);
+
+    // Use `web_sys`'s global `window` function to get a handle on the global
+    // window object.
+    let window = web_sys::window().expect("no global `window` exists");
+    let document = window.document().expect("should have a document on window");
+    let body = document.body().expect("document should have a body");
+
+    let val = document.create_element("h2").unwrap();
+    val.set_text_content(Some("Codons:"));
+    body.append_child(&val).unwrap();
+
     print!("The translated amino acids are: ");
     for i in amino_acids_list {
-        print!("{}, ", i);
-        alert(&i);
+        let val = document.create_element("p").unwrap();
+        val.set_text_content(Some(&i));
+        body.append_child(&val).unwrap();
     }
 }
