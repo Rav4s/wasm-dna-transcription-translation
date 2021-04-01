@@ -4,18 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="Easily transcribe and translate DNA into messenger RNA and amino acids">
+    <meta name="application-name" content="DNA Transcription and Translation App">
+    <meta name="theme-color" content="#568ea3">
     <title>DNA Transcription &amp; Translation</title>
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
-    <h1>Please enter the DNA strand in the space below:</h1>
-    <form class="dna-input" action="app.html" method="get">
-      <input type="text" name="strand">
-      <input type="submit" value="Submit">
-    </form>
+    <div class="input-div-container">
+      <div class="input-div">
+        <form class="dna-input" action="app.html" method="get">
+          <label>
+            <h1>Please enter the DNA strand in the space below:</h1>
+            <input type="text" name="strand">
+          </label>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
     <div id="footer">
       <p>© 2021 Ravi Shah</p>
+      <br />
     </div>
   </body>
 </html>
