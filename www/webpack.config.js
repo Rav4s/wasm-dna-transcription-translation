@@ -12,4 +12,8 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin(['index.html'])
   ],
+  devServer: {
+    compress: true,
+    public: 'dna-transcription-translation.yeetpc.com' //Change for another domain
+  }
 };
