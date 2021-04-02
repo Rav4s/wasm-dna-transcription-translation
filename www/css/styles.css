@@ -76,6 +76,18 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
+.input-box {
+  margin-top: 1em;
+  padding: 0.5em;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+.input-submit {
+  margin-top: 1em;
+  padding: 0.5em;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
 #footer {
   text-align: center;
   margin-top: 1em;
@@ -115,4 +127,15 @@ a:hover {
 
 .main-heading h1 {
   font-size: 2em;
+}
+
+@media only screen and (max-width: 800px) {
+  .input-div {
+    width: 100%;
+    top: 25%;
+  }
+
+  .input-box, .input-submit {
+    padding: 1em;
+  }
 }
