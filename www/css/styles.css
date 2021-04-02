@@ -74,6 +74,7 @@ a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 10px;
 }
 
 .input-box {
@@ -114,10 +115,11 @@ a:hover {
 
 #codons {
   line-height: 1em;
+  font-size: 1.2em;
 }
 
 #codons h2 {
-  font-size: 1.75em;
+  font-size: 2rem;
 }
 
 .main-heading {
@@ -137,5 +139,9 @@ a:hover {
 
   .input-box, .input-submit {
     padding: 1em;
+  }
+
+  .codons-container {
+    width: 100%;
   }
 }
