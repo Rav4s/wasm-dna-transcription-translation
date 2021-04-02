@@ -3,6 +3,7 @@ name = "wasm-dna-transcription-translation"
 version = "0.1.0"
 authors = ["rav4s <ravidhruvishshah@gmail.com>"]
 edition = "2018"
+wasm-opt = false
 
 [lib]
 crate-type = ["cdylib", "rlib"]
