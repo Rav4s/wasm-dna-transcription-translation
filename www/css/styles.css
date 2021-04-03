@@ -78,15 +78,58 @@ a:hover {
 }
 
 .input-box {
+  -webkit-appearance: none;
+  border-radius: 0;
   margin-top: 1em;
   padding: 0.5em;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  outline: none;
+  border: 0;
+  font-size: 15px;
+}
+
+.input-box::-moz-focus-inner {
+   border: 0;
 }
 
 .input-submit {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 0;
   margin-top: 1em;
   padding: 0.5em;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  background: #0069ed;
+  color: white;
+  transition: background 250ms ease-in-out,
+            transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.input-submit::-moz-focus-inner {
+   border: 0;
+}
+
+.input-submit:hover,
+.input-submit:focus {
+  background: #0053ba;
+}
+
+.input-submit:focus {
+    outline: 1px solid #fff;
+    outline-offset: -1px;
+}
+
+.input-submit:active {
+    transform: scale(0.99);
 }
 
 #footer {
