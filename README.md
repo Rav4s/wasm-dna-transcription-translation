@@ -26,7 +26,9 @@ Before installing this program, you'll need a few dependencies. These include:
 - wasm-pack
 - node.js & NPM
 
-## Building and running
+After making sure these dependencies are installed, clone the repository using `git clone https://github.com/Rav4s/wasm-dna-transcription-translation.git`. Then, enter the cloned repo and run `wasm-pack build`. Install the NPM packages using `cd www && npm install` Now, you can start the web server using `npm start`.
+
+The web server will now be accessible at `localhost:8080`.
 
 ## In action
 This is available in action at https://dna-transcription-translation.yeetpc.com/
