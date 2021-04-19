@@ -20,5 +20,13 @@ I'm glad you asked! Unlike a regular program that just transcribes and translate
 Of course there's some CSS as well to make it all look nice ✨
 
 ## Installation
+Before installing this program, you'll need a few dependencies. These include:
+- An up to date Rust install
+- wasm-bindgen
+- wasm-pack
+- node.js & NPM
 
 ## Building and running
+
+## In action
+This is available in action at https://dna-transcription-translation.yeetpc.com/
