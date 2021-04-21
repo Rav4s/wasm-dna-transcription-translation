@@ -30,7 +30,7 @@
     "wasm-dna-transcription-translation": "file:../pkg"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^5.0.0",
+    "copy-webpack-plugin": "^6.4.1",
     "hello-wasm-pack": "^0.1.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^4.6.0",
