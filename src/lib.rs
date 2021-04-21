@@ -94,24 +94,20 @@ pub fn find_first(stop_index_1: usize, stop_index_2: usize, stop_index_3: usize)
     // Find which stop codon actually occured first
     if stop_index_1 < stop_index_2 {
         if stop_index_1 < stop_index_3{
-            println!("UAA stop codon found!");
             stop_index = stop_index_1;
         }
     }
     else if stop_index_2 < stop_index_1 {
         if stop_index_2 < stop_index_3 {
-            println!("UAG stop codon found!");
             stop_index = stop_index_2;
         }
     }
     else if stop_index_3 < stop_index_1 {
         if stop_index_3 < stop_index_2 {
-            println!("UGA stop codon found!");
             stop_index = stop_index_3;
         }
     }
     else {
-        println!("No stop codon found!");
         process::exit(1);
     }
 
@@ -157,18 +153,13 @@ pub fn translation(inter_codons: Vec<String>) -> Vec<String> {
 
 #[wasm_bindgen]
 pub fn main(mut strand: String) {
-    println!("Enter the DNA strand to be transcribed and translated: ");
-
     strand = strand.to_string().to_uppercase(); // Convert to uppercase
 
     let messenger_rna = transcription(strand); // Transcribe strand
-    println!("The transcribed strand is: {}", messenger_rna);
     let inter_rna = find_start(messenger_rna); // Find start codon
-    println!("{}", inter_rna);
     let mut inter_codons = break_into_codons(inter_rna); // Break into codons
     let mut stop_index = find_stop(&inter_codons); // Find index of stop codon
     stop_index = stop_index + 1;
-    println!("{}", stop_index);
     inter_codons.truncate(stop_index); // Truncate at stop index
     let amino_acids_list = translation(inter_codons); // Translate to amino acids
 
@@ -183,7 +174,6 @@ pub fn main(mut strand: String) {
     val.set_text_content(Some("Codons:"));
     codons_div.append_with_node_1(&val).unwrap();
 
-    print!("The translated amino acids are: ");
     // Insert amino acids into the DOM
     for i in amino_acids_list {
         let val = document.create_element("p").unwrap();
